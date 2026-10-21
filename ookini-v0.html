@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ookini - Café de Especialidad & Métodos de Extracción</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ookini: {
+                            bg: '#0f0e0c',
+                            card: '#181612',
+                            accent: '#d4a359',
+                            accentHover: '#b88942',
+                            cream: '#f5efe6',
+                            muted: '#9a9083',
+                            border: '#2c2720',
+                            red: '#9e2a2b'
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        jp: ['Shippori Mincho', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f0e0c;
+            color: #f5efe6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .font-jp-title {
+            font-family: 'Shippori Mincho', serif;
+        }
+        .hero-pattern {
+            background-image: radial-gradient(rgba(212, 163, 89, 0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-ookini-accent selection:text-black">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-ookini-bg/90 backdrop-blur-md border-b border-ookini-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-ookini-accent/10 border border-ookini-accent flex items-center justify-center text-ookini-accent font-jp-title font-bold text-xl group-hover:bg-ookini-accent group-hover:text-black transition-all">
+                    大
+                </div>
+                <div>
+                    <span class="font-cinzel tracking-widest text-xl font-bold text-ookini-cream block">OOKINI</span>
+                    <span class="text-[10px] tracking-widest uppercase text-ookini-muted font-light">Kyoto Style Coffee</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-wider font-medium">
+                <a href="#historia" class="hover:text-ookini-accent transition-colors">Historia</a>
+                <a href="#metodos" class="hover:text-ookini-accent transition-colors">Métodos & Menú</a>
+                <a href="#reservas" class="hover:text-ookini-accent transition-colors">Reservas</a>
+                <a href="#cata" class="hover:text-ookini-accent transition-colors">Cata Semanal</a>
+            </nav>
+
+            <!-- Hours Badge -->
+            <div class="hidden lg:flex items-center gap-2 text-xs bg-ookini-card border border-ookini-border px-3 py-1.5 rounded-full text-ookini-muted">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Abierto hoy: 8:00 A.M. - 8:00 P.M.</span>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-ookini-cream text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileNav" class="hidden md:hidden bg-ookini-card border-b border-ookini-border px-6 py-4 space-y-3">
+            <a href="#historia" class="block text-sm uppercase tracking-wider hover:text-ookini-accent py-1">Historia</a>
+            <a href="#metodos" class="block text-sm uppercase tracking-wider hover:text-ookini-accent py-1">Métodos & Menú</a>
+            <a href="#reservas" class="block text-sm uppercase tracking-wider hover:text-ookini-accent py-1">Reservas</a>
+            <a href="#cata" class="block text-sm uppercase tracking-wider hover:text-ookini-accent py-1">Cata Semanal</a>
+            <div class="pt-2 border-t border-ookini-border text-xs text-ookini-muted flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Atención: 8 a.m. - 8 p.m.</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative hero-pattern py-20 lg:py-28 overflow-hidden border-b border-ookini-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ookini-accent/10 border border-ookini-accent/30 text-ookini-accent text-xs font-semibold tracking-wider uppercase">
+                            <i class="fa-solid fa-droplet"></i> Ritual de Filtrado Lento
+                        </div>
+                        <h1 class="text-4xl sm:text-6xl font-cinzel font-bold text-ookini-cream leading-tight">
+                            El arte de dar las gracias en cada extracción.
+                        </h1>
+                        <p class="text-ookini-muted text-lg font-light leading-relaxed max-w-2xl">
+                            Inspirados en la calma y precisión de Kioto. Desde nuestro emblemático café helado por goteo de 12 horas (*Kyoto drip*) hasta filtrados especiales preparados solo bajo reserva.
+                        </p>
+                        <div class="pt-4 flex flex-wrap gap-4">
+                            <a href="#reservas" class="px-7 py-3.5 bg-ookini-accent hover:bg-ookini-accentHover text-black font-semibold uppercase text-xs tracking-widest transition-all rounded shadow-lg shadow-ookini-accent/10">
+                                Reservar Preparación Especial
+                            </a>
+                            <a href="#metodos" class="px-7 py-3.5 bg-transparent border border-ookini-border hover:border-ookini-accent text-ookini-cream font-semibold uppercase text-xs tracking-widest transition-all rounded">
+                                Ver Menú & Métodos
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Daily Status Widget Card -->
+                    <div class="lg:col-span-5 bg-ookini-card border border-ookini-border rounded-xl p-6 sm:p-8 relative">
+                        <div class="absolute top-0 right-0 -mt-3 -mr-3 px-3 py-1 bg-ookini-accent text-black font-bold text-xs uppercase tracking-widest rounded shadow">
+                            En Vivo
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-ookini-cream mb-1">Disponibilidad del Día</h3>
+                        <p class="text-xs text-ookini-muted mb-6">Reglas de servicio controlado para máxima calidad</p>
+
+                        <div class="space-y-5">
+                            <!-- Daily Cup Counter -->
+                            <div>
+                                <div class="flex justify-between text-xs mb-2">
+                                    <span class="text-ookini-muted">Cupos de Preparaciones Especiales:</span>
+                                    <span id="dailyCupsText" class="font-bold text-ookini-accent">34 / 50 Tazas</span>
+                                </div>
+                                <div class="w-full bg-ookini-bg rounded-full h-2.5 overflow-hidden border border-ookini-border">
+                                    <div id="dailyProgressBar" class="bg-ookini-accent h-2.5 rounded-full transition-all duration-500" style="width: 68%"></div>
+                                </div>
+                                <p class="text-[11px] text-ookini-muted mt-1.5 italic">
+                                    * Límite diario estricto de 50 tazas entre V60, Kyoto Drip y Siphon. Máximo 2 tazas por persona.
+                                </p>
+                            </div>
+
+                            <hr class="border-ookini-border my-4">
+
+                            <!-- Walk-in info -->
+                            <div class="flex items-start gap-3">
+                                <div class="p-2 bg-emerald-950/50 border border-emerald-500/30 text-emerald-400 rounded">
+                                    <i class="fa-solid fa-mug-hot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-ookini-cream">Prensa Francesa (Walk-in)</h4>
+                                    <p class="text-xs text-ookini-muted">Sin reserva previa. Disponible en barra hasta el cierre ($3 USD).</p>
+                                </div>
+                            </div>
+
+                            <!-- Tasting status -->
+                            <div class="flex items-start gap-3">
+                                <div class="p-2 bg-purple-950/50 border border-purple-500/30 text-purple-400 rounded">
+                                    <i class="fa-solid fa-wine-glass-drop"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-ookini-cream">Cata Semanal Especializada</h4>
+                                    <p class="text-xs text-ookini-muted">1 sesión semanal. Cupo máximo de 8 personas ($25 USD/pers).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historia Section -->
+        <section id="historia" class="py-16 border-b border-ookini-border bg-ookini-bg">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <span class="text-ookini-accent font-jp text-2xl">おおきに</span>
+                <h2 class="text-3xl font-cinzel font-bold text-ookini-cream mt-2 mb-6">El Origen de Ookini</h2>
+                <p class="text-ookini-muted leading-relaxed text-base">
+                    <strong class="text-ookini-cream font-semibold">"Ookini"</strong> es la palabra utilizada en la región de Kansai —donde se ubica la histórica ciudad de Kioto— para expresar una profunda gratitud. De allí nace también el tradicional método <span class="text-ookini-accent font-semibold">Kyoto Drip</span>, una técnica de extracción en frío gota a gota durante más de 12 horas que resalta notas florales y frutales puras.
+                </p>
+                <p class="text-ookini-muted leading-relaxed text-base mt-4">
+                    Para mantener el estándar de excelencia en nuestras preparaciones lentas, limitamos el servicio especial a un máximo de **50 tazas diarias** y **2 tazas por persona**.
+                </p>
+            </div>
+        </section>
+
+        <!-- Métodos & Menú Section -->
+        <section id="metodos" class="py-20 border-b border-ookini-border bg-ookini-card/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-3xl font-cinzel font-bold text-ookini-cream">Nuestros Métodos & Menú</h2>
+                    <p class="text-ookini-muted text-sm mt-2">Selecciona y conoce cada propuesta artesanal de nuestro café</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- V60 Card -->
+                    <div class="bg-ookini-card border border-ookini-border rounded-xl p-6 hover:border-ookini-accent/50 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-xs uppercase font-semibold text-ookini-accent tracking-wider border border-ookini-accent/30 bg-ookini-accent/10 px-2.5 py-1 rounded">Reserva Requerida</span>
+                                <span class="text-2xl font-cinzel font-bold text-ookini-cream">$5 <span class="text-xs font-sans text-ookini-muted">USD</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-ookini-cream mb-2">V60 Pour-Over</h3>
+                            <p class="text-ookini-muted text-xs leading-relaxed mb-4">
+                                Filtrado en cono cónico japonés. Resalta la acidez brillante, cuerpo ligero y claridad aromática impecable.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="text-[11px] text-ookini-muted mb-4 border-t border-ookini-border/60 pt-3">
+                                <i class="fa-regular fa-clock mr-1"></i> Tiempo de extracción: ~4 min
+                            </div>
+                            <button onclick="selectMethodForBooking('v60')" class="w-full py-2.5 bg-ookini-bg border border-ookini-border hover:border-ookini-accent text-ookini-cream hover:text-ookini-accent text-xs uppercase tracking-widest rounded transition-all">
+                                Reservar V60
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Kyoto Drip Card -->
+                    <div class="bg-ookini-card border-2 border-ookini-accent/60 rounded-xl p-6 relative flex flex-col justify-between shadow-xl shadow-ookini-accent/5">
+                        <div class="absolute -top-3 left-6 px-3 py-0.5 bg-ookini-accent text-black font-bold text-[10px] uppercase tracking-widest rounded">
+                            Especialidad Insignia
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-4 pt-2">
+                                <span class="text-xs uppercase font-semibold text-ookini-accent tracking-wider border border-ookini-accent/30 bg-ookini-accent/10 px-2.5 py-1 rounded">Reserva Requerida</span>
+                                <span class="text-2xl font-cinzel font-bold text-ookini-accent">$7 <span class="text-xs font-sans text-ookini-muted">USD</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-ookini-cream mb-2">Kyoto Drip (Gota a Gota)</h3>
+                            <p class="text-ookini-muted text-xs leading-relaxed mb-4">
+                                Extracción lenta en torre de cristal gota a gota en agua helada por 12 horas. Bebida sedosa, baja acidez y rica en matices dulzones.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="text-[11px] text-ookini-muted mb-4 border-t border-ookini-border/60 pt-3">
+                                <i class="fa-regular fa-snowflake mr-1 text-sky-400"></i> Servicio Frío Especial
+                            </div>
+                            <button onclick="selectMethodForBooking('kyoto')" class="w-full py-2.5 bg-ookini-accent hover:bg-ookini-accentHover text-black font-bold text-xs uppercase tracking-widest rounded transition-all">
+                                Reservar Kyoto Drip
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Siphon Card -->
+                    <div class="bg-ookini-card border border-ookini-border rounded-xl p-6 hover:border-ookini-accent/50 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-xs uppercase font-semibold text-ookini-accent tracking-wider border border-ookini-accent/30 bg-ookini-accent/10 px-2.5 py-1 rounded">Reserva Requerida</span>
+                                <span class="text-2xl font-cinzel font-bold text-ookini-cream">$8 <span class="text-xs font-sans text-ookini-muted">USD</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-ookini-cream mb-2">Sifón Japonés</h3>
+                            <p class="text-ookini-muted text-xs leading-relaxed mb-4">
+                                Método teatral por infusión y vacío utilizando mechero de halógeno. Produce una taza sumamente limpia, suave y con mucho cuerpo.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="text-[11px] text-ookini-muted mb-4 border-t border-ookini-border/60 pt-3">
+                                <i class="fa-solid fa-fire mr-1 text-amber-500"></i> Preparación en mesa
+                            </div>
+                            <button onclick="selectMethodForBooking('siphon')" class="w-full py-2.5 bg-ookini-bg border border-ookini-border hover:border-ookini-accent text-ookini-cream hover:text-ookini-accent text-xs uppercase tracking-widest rounded transition-all">
+                                Reservar Sifón
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- French Press Walk-in Card -->
+                    <div class="bg-ookini-card border border-ookini-border rounded-xl p-6 hover:border-emerald-500/50 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-xs uppercase font-semibold text-emerald-400 tracking-wider border border-emerald-500/30 bg-emerald-950/40 px-2.5 py-1 rounded">Sin Reserva (Walk-in)</span>
+                                <span class="text-2xl font-cinzel font-bold text-ookini-cream">$3 <span class="text-xs font-sans text-ookini-muted">USD</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-ookini-cream mb-2">Prensa Francesa</h3>
+                            <p class="text-ookini-muted text-xs leading-relaxed mb-4">
+                                Infusión directa e inmersión completa. Ideal si nos visitas sin reserva previa. Disponible en barra de forma continua hasta el cierre.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="text-[11px] text-emerald-400/90 mb-4 border-t border-ookini-border/60 pt-3 flex items-center gap-1.5">
+                                <i class="fa-solid fa-infinity"></i> Sin límite por persona
+                            </div>
+                            <button onclick="openWalkinModal()" class="w-full py-2.5 bg-emerald-950/50 hover:bg-emerald-900/60 border border-emerald-500/40 text-emerald-300 text-xs uppercase tracking-widest rounded transition-all">
+                                Calculador Walk-in
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Weekly Tasting Card -->
+                    <div class="bg-ookini-card border border-purple-500/40 rounded-xl p-6 hover:border-purple-500 transition-all flex flex-col justify-between md:col-span-2 lg:col-span-2">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-xs uppercase font-semibold text-purple-300 tracking-wider border border-purple-500/30 bg-purple-950/40 px-2.5 py-1 rounded">1 Sesión por Semana</span>
+                                <span class="text-2xl font-cinzel font-bold text-purple-300">$25 <span class="text-xs font-sans text-ookini-muted">USD / persona</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-ookini-cream mb-2">Cata Semanal Guiada por Barista</h3>
+                            <p class="text-ookini-muted text-xs leading-relaxed mb-4">
+                                Una experiencia inmersiva para grupos reducidos. Incluye cata sensorial de 4 orígenes de especialidad de tostadores invitados, guiada paso a paso por nuestro maestro barista.
+                            </p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-ookini-border/60 pt-4">
+                            <div class="text-xs text-purple-300/90">
+                                <i class="fa-solid fa-users mr-1"></i> Máximo 8 cupos por cata semanal
+                            </div>
+                            <button onclick="selectMethodForBooking('tasting')" class="px-6 py-2.5 bg-purple-900/40 hover:bg-purple-800/60 border border-purple-500/50 text-purple-200 text-xs uppercase tracking-widest rounded transition-all">
+                                Reservar Cupo en Cata
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking & Interactive Form Section -->
+        <section id="reservas" class="py-20 border-b border-ookini-border bg-ookini-bg">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <span class="text-xs uppercase tracking-widest text-ookini-accent font-semibold">Sistema de Gestión de Reservas</span>
+                    <h2 class="text-3xl font-cinzel font-bold text-ookini-cream mt-1">Haz tu Reserva en Línea</h2>
+                    <p class="text-ookini-muted text-xs mt-2">El sistema aplicará automáticamente las reglas de cupos e importes</p>
+                </div>
+
+                <div class="bg-ookini-card border border-ookini-border rounded-xl p-6 sm:p-10 shadow-2xl">
+                    <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-6">
+                        
+                        <!-- Personal Info -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-ookini-muted mb-2 font-medium">Nombre Completo *</label>
+                                <input type="text" id="custName" required placeholder="Ej. Kenji Sato" class="w-full bg-ookini-bg border border-ookini-border rounded px-4 py-2.5 text-sm text-ookini-cream focus:outline-none focus:border-ookini-accent">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-ookini-muted mb-2 font-medium">Correo Electrónico *</label>
+                                <input type="email" id="custEmail" required placeholder="cliente@ejemplo.com" class="w-full bg-ookini-bg border border-ookini-border rounded px-4 py-2.5 text-sm text-ookini-cream focus:outline-none focus:border-ookini-accent">
+                            </div>
+                        </div>
+
+                        <!-- Date & Time Selection -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-ookini-muted mb-2 font-medium">Fecha de Reserva *</label>
+                                <input type="date" id="bookDate" required class="w-full bg-ookini-bg border border-ookini-border rounded px-4 py-2.5 text-sm text-ookini-cream focus:outline-none focus:border-ookini-accent">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-ookini-muted mb-2 font-medium">Hora de Visita (8:00 AM - 8:00 PM) *</label>
+                                <select id="bookTime" required class="w-full bg-ookini-bg border border-ookini-border rounded px-4 py-2.5 text-sm text-ookini-cream focus:outline-none focus:border-ookini-accent">
+                                    <option value="">Selecciona horario...</option>
+                                    <option value="08:00">08:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="14:00">02:00 PM</option>
+                                    <option value="16:00">04:00 PM</option>
+                                    <option value="18:00">06:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Product Selection -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-ookini-muted mb-2 font-medium">Selección de Experiencia o Método *</label>
+                            <select id="prepType" onchange="updateFormRules()" required class="w-full bg-ookini-bg border border-ookini-border rounded px-4 py-2.5 text-sm text-ookini-cream focus:outline-none focus:border-ookini-accent">
+                                <option value="">-- Elige una opción --</option>
+                                <option value="v60">V60 Pour-Over ($5 USD / taza)</option>
+                                <option value="kyoto">Kyoto Drip Cold Brew ($7 USD / taza)</option>
+                                <option value="siphon">Sifón Japonés ($8 USD / taza)</option>
+                                <option value="tasting">Cata Semanal Especializada ($25 USD / persona)</option>
+                            </select>
+                        </div>
+
+                        <!-- Quantity Selector & Dynamic Warning -->
+                        <div class="bg-ookini-bg border border-ookini-border p-4 rounded-lg space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <label id="qtyLabel" class="text-xs uppercase tracking-wider text-ookini-cream font-bold block">
+                                        Cantidad de Tazas
+                                    </label>
+                                    <span id="ruleHelperText" class="text-[11px] text-ookini-muted">
+                                        Límite máximo de 2 tazas por persona en métodos especiales.
+                                    </span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <button type="button" onclick="adjustQty(-1)" class="w-8 h-8 rounded bg-ookini-card border border-ookini-border text-ookini-cream font-bold hover:border-ookini-accent">-</button>
+                                    <span id="qtyDisplay" class="font-bold text-lg text-ookini-accent w-6 text-center">1</span>
+                                    <button type="button" onclick="adjustQty(1)" class="w-8 h-8 rounded bg-ookini-card border border-ookini-border text-ookini-cream font-bold hover:border-ookini-accent">+</button>
+                                </div>
+                            </div>
+
+                            <!-- Error alert space -->
+                            <div id="ruleErrorMsg" class="hidden p-3 bg-red-950/80 border border-red-500/50 rounded text-red-200 text-xs flex items-center gap-2">
+                                <i class="fa-solid fa-circle-exclamation text-red-400"></i>
+                                <span id="ruleErrorText">Excedes el límite permitido.</span>
+                            </div>
+                        </div>
+
+                        <!-- Total Price Summary -->
+                        <div class="flex items-center justify-between border-t border-ookini-border pt-4">
+                            <div>
+                                <span class="text-xs text-ookini-muted uppercase block">Total a pagar en café:</span>
+                                <span id="totalPrice" class="text-3xl font-cinzel font-bold text-ookini-accent">$0.00 USD</span>
+                            </div>
+                            <button type="submit" id="submitBtn" class="px-8 py-3.5 bg-ookini-accent hover:bg-ookini-accentHover text-black font-bold uppercase text-xs tracking-widest rounded transition-all shadow-lg shadow-ookini-accent/20">
+                                Confirmar Reserva
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Walk-in Calculator Modal -->
+        <div id="walkinModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-ookini-card border border-ookini-border rounded-xl max-w-md w-full p-6 relative">
+                <button onclick="closeWalkinModal()" class="absolute top-4 right-4 text-ookini-muted hover:text-ookini-cream text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 bg-emerald-950/50 border border-emerald-500/40 text-emerald-400 rounded">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel text-lg font-bold text-ookini-cream">Calculador Prensa Francesa</h3>
+                        <p class="text-xs text-ookini-muted">Atención inmediata Walk-in ($3 USD / taza)</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4 my-6">
+                    <p class="text-xs text-ookini-muted leading-relaxed">
+                        No requiere reserva previa. Puedes llegar directamente al local dentro de nuestro horario (8 AM - 8 PM).
+                    </p>
+                    <div>
+                        <label class="block text-xs uppercase text-ookini-muted mb-2 font-medium">¿Cuántas tazas deseas ordenar hoy?</label>
+                        <input type="number" id="walkinCups" min="1" value="2" oninput="calculateWalkin()" class="w-full bg-ookini-bg border border-ookini-border rounded px-4 py-2 text-sm text-ookini-cream focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div class="p-4 bg-ookini-bg rounded-lg border border-ookini-border flex justify-between items-center">
+                        <span class="text-xs text-ookini-muted uppercase">Costo Estimado:</span>
+                        <span id="walkinTotal" class="text-2xl font-cinzel font-bold text-emerald-400">$6.00 USD</span>
+                    </div>
+                </div>
+
+                <button onclick="closeWalkinModal()" class="w-full py-2.5 bg-emerald-900/60 border border-emerald-500/40 hover:bg-emerald-800/60 text-emerald-200 text-xs uppercase tracking-widest font-semibold rounded">
+                    Entendido, Visitaré el Café
+                </button>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="successModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-ookini-card border border-ookini-accent/50 rounded-xl max-w-md w-full p-8 text-center relative shadow-2xl">
+                <div class="w-16 h-16 bg-ookini-accent/10 border border-ookini-accent text-ookini-accent rounded-full flex items-center justify-center mx-auto text-2xl mb-4">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 class="font-cinzel text-2xl font-bold text-ookini-cream mb-2">¡Reserva Confirmada!</h3>
+                <p class="text-xs text-ookini-muted mb-6">Hemos registrado tu pedido correctamente en el sistema de Ookini.</p>
+                
+                <div id="receiptDetails" class="bg-ookini-bg border border-ookini-border rounded-lg p-4 text-left text-xs space-y-2 mb-6 font-mono">
+                    <!-- Dynamic receipt -->
+                </div>
+
+                <button onclick="closeSuccessModal()" class="w-full py-3 bg-ookini-accent hover:bg-ookini-accentHover text-black font-bold text-xs uppercase tracking-widest rounded transition-all">
+                    Aceptar & Volver
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-ookini-card border-t border-ookini-border py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-ookini-accent font-jp text-lg">おおきに</span>
+                        <span class="font-cinzel font-bold text-ookini-cream">OOKINI COFFEE</span>
+                    </div>
+                    <p class="text-xs text-ookini-muted leading-relaxed">
+                        Café de especialidad guiado por el espíritu de Kioto. Métodos de filtrado lento, tostado artesanal y catas guiadas.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-cinzel text-sm font-bold text-ookini-cream mb-3 uppercase tracking-wider">Horario & Ubicación</h4>
+                    <p class="text-xs text-ookini-muted space-y-1">
+                        <span class="block"><i class="fa-regular fa-clock mr-2 text-ookini-accent"></i> Lunes a Domingo: 8:00 AM - 8:00 PM</span>
+                        <span class="block mt-1"><i class="fa-solid fa-location-dot mr-2 text-ookini-accent"></i> Av. Kioto Specialty Coffee District</span>
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-cinzel text-sm font-bold text-ookini-cream mb-3 uppercase tracking-wider">Reglas del Casa</h4>
+                    <ul class="text-[11px] text-ookini-muted space-y-1 list-disc list-inside">
+                        <li>Máximo 50 tazas diarias de preparaciones especiales</li>
+                        <li>Límite de 2 tazas de preparación especial por persona</li>
+                        <li>Cata semanal restringida a 8 cupos</li>
+                        <li>Prensa francesa disponible sin reserva</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-ookini-border pt-6 text-center text-xs text-ookini-muted">
+                <p>&copy; <span id="currentYear"></span> Ookini Specialty Coffee. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Business Logic & Interactions -->
+    <script>
+        // Business Rules Configuration Constants
+        const DAILY_MAX_SPECIAL_CUPS = 50;
+        const MAX_SPECIAL_CUPS_PER_PERSON = 2;
+        const TASTING_MAX_SEATS = 8;
+
+        const PRICES = {
+            v60: 5,
+            kyoto: 7,
+            siphon: 8,
+            french: 3,
+            tasting: 25
+        };
+
+        // State Management
+        let state = {
+            remainingSpecialCupsToday: 34, // Simulated remaining cups
+            remainingTastingSeats: 8,
+            selectedPrep: '',
+            selectedQty: 1
+        };
+
+        // Initialize Page
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Set min date to today in date input
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('bookDate').min = today;
+            document.getElementById('bookDate').value = today;
+
+            // Toggle Mobile Menu
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.classList.toggle('hidden');
+            });
+
+            updateDailyCounterUI();
+            updateFormRules();
+        });
+
+        // Function to scroll and pre-select method
+        function selectMethodForBooking(methodKey) {
+            const prepSelect = document.getElementById('prepType');
+            prepSelect.value = methodKey;
+            updateFormRules();
+            
+            const bookingSection = document.getElementById('reservas');
+            bookingSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Adjust Quantity
+        function adjustQty(change) {
+            const prepType = document.getElementById('prepType').value;
+            let maxLimit = 99;
+
+            if (prepType === 'v60' || prepType === 'kyoto' || prepType === 'siphon') {
+                maxLimit = MAX_SPECIAL_CUPS_PER_PERSON;
+            } else if (prepType === 'tasting') {
+                maxLimit = state.remainingTastingSeats;
+            }
+
+            let newQty = state.selectedQty + change;
+
+            if (newQty >= 1 && newQty <= maxLimit) {
+                state.selectedQty = newQty;
+                document.getElementById('qtyDisplay').textContent = state.selectedQty;
+                calculateTotal();
+            } else if (newQty > maxLimit) {
+                showRuleError(`Límite máximo permitido para esta selección: ${maxLimit}`);
+            }
+        }
+
+        // Update Rules dynamically when selecting prep option
+        function updateFormRules() {
+            const prepType = document.getElementById('prepType').value;
+            state.selectedPrep = prepType;
+            state.selectedQty = 1;
+            document.getElementById('qtyDisplay').textContent = "1";
+            hideRuleError();
+
+            const qtyLabel = document.getElementById('qtyLabel');
+            const helperText = document.getElementById('ruleHelperText');
+
+            if (prepType === 'tasting') {
+                qtyLabel.textContent = "Número de Personas";
+                helperText.textContent = `Cata semanal: Mínimo 1, máximo ${state.remainingTastingSeats} personas. ($25 USD / pers)`;
+            } else if (prepType === 'v60' || prepType === 'kyoto' || prepType === 'siphon') {
+                qtyLabel.textContent = "Cantidad de Tazas";
+                helperText.textContent = `Preparación especial: Regla estricta de máximo ${MAX_SPECIAL_CUPS_PER_PERSON} tazas por persona.`;
+            } else {
+                qtyLabel.textContent = "Cantidad";
+                helperText.textContent = "Selecciona un método para ver las condiciones.";
+            }
+
+            calculateTotal();
+        }
+
+        // Calculate Total Cost
+        function calculateTotal() {
+            const prep = document.getElementById('prepType').value;
+            let unitPrice = PRICES[prep] || 0;
+            let total = unitPrice * state.selectedQty;
+            document.getElementById('totalPrice').textContent = `$${total.toFixed(2)} USD`;
+        }
+
+        // Helper Error display
+        function showRuleError(msg) {
+            const errBox = document.getElementById('ruleErrorMsg');
+            const errText = document.getElementById('ruleErrorText');
+            errText.textContent = msg;
+            errBox.classList.remove('hidden');
+        }
+
+        function hideRuleError() {
+            document.getElementById('ruleErrorMsg').classList.add('hidden');
+        }
+
+        // UI Daily counter update
+        function updateDailyCounterUI() {
+            const textElem = document.getElementById('dailyCupsText');
+            const barElem = document.getElementById('dailyProgressBar');
+
+            textElem.textContent = `${state.remainingSpecialCupsToday} / ${DAILY_MAX_SPECIAL_CUPS} Tazas`;
+            let percentage = (state.remainingSpecialCupsToday / DAILY_MAX_SPECIAL_CUPS) * 100;
+            barElem.style.width = `${percentage}%`;
+        }
+
+        // Handle Booking Submission
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('custName').value;
+            const email = document.getElementById('custEmail').value;
+            const date = document.getElementById('bookDate').value;
+            const time = document.getElementById('bookTime').value;
+            const prep = document.getElementById('prepType').value;
+            const qty = state.selectedQty;
+
+            if (!prep) {
+                alert("Por favor selecciona un método o experiencia.");
+                return;
+            }
+
+            // Enforce Business Logic checks
+            if ((prep === 'v60' || prep === 'kyoto' || prep === 'siphon')) {
+                if (qty > MAX_SPECIAL_CUPS_PER_PERSON) {
+                    showRuleError(`Regla de negocio: Máximo ${MAX_SPECIAL_CUPS_PER_PERSON} tazas por persona.`);
+                    return;
+                }
+
+                if (qty > state.remainingSpecialCupsToday) {
+                    showRuleError(`Lo sentimos, solo quedan ${state.remainingSpecialCupsToday} tazas de preparaciones especiales para hoy.`);
+                    return;
+                }
+
+                // Deduct from daily limit
+                state.remainingSpecialCupsToday -= qty;
+                updateDailyCounterUI();
+            } else if (prep === 'tasting') {
+                if (qty > state.remainingTastingSeats) {
+                    showRuleError(`Solo quedan ${state.remainingTastingSeats} cupos para la cata semanal.`);
+                    return;
+                }
+                state.remainingTastingSeats -= qty;
+            }
+
+            // Build Receipt text
+            const prepNames = {
+                v60: 'V60 Pour-Over',
+                kyoto: 'Kyoto Drip',
+                siphon: 'Sifón Japonés',
+                tasting: 'Cata Semanal Especializada'
+            };
+
+            const totalAmount = (PRICES[prep] * qty).toFixed(2);
+
+            const receiptHTML = `
+                <p><strong class="text-ookini-cream">Cliente:</strong> ${name}</p>
+                <p><strong class="text-ookini-cream">Email:</strong> ${email}</p>
+                <p><strong class="text-ookini-cream">Fecha & Hora:</strong> ${date} a las ${time}</p>
+                <p><strong class="text-ookini-cream">Servicio:</strong> ${prepNames[prep]} x ${qty}</p>
+                <p class="pt-2 border-t border-ookini-border font-bold text-ookini-accent text-sm">
+                    Total Confirmado: $${totalAmount} USD
+                </p>
+            `;
+
+            document.getElementById('receiptDetails').innerHTML = receiptHTML;
+            document.getElementById('successModal').classList.remove('hidden');
+
+            // Reset Form
+            document.getElementById('bookingForm').reset();
+            state.selectedQty = 1;
+            document.getElementById('qtyDisplay').textContent = "1";
+            calculateTotal();
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+
+        // Walk-in modal functions
+        function openWalkinModal() {
